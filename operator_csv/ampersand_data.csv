@@ -1,0 +1,24 @@
+Parameter,Value,Unit,CitationKey,ReportNote
+Battery chemistry,LFP,,AmpEne:25,Cite [AmpEne:25] - justifies LFP charging model and cycle life assumptions
+Battery voltage,72,V,NgeJunRod:24,Cite [NgeJunRod:24] - used in capacity derivation and operator specs table
+Battery capacity,2.88,kWh,Derived: 72V x 40Ah From NgeJunRod:24,Cite [NgeJunRod:24]
+Battery range per swap,72,km,AmpCle:22,Cite [AmpCle:22] - contextual; not directly used in model
+Swap time,2,min,AmpAut:25,Cite [AmpAut:25] - used in Simulink docking station service time
+Swap price,1.6,USD,EV24:25,Cite [EV24:25] - KEY revenue input in economic_model.m
+Pricing model,Pay-per-swap,,AmpAut:25,Cite [AmpAut:25] - justifies revenue = swap_price x swaps_per_day x 365
+Swaps per day per station,200,,Derived: 14700 network swaps/day (AmpCle:25) / 26 stations (HowAmp:24),Corrected from 565 to 200. The CrossBoundary/Ampersand Kitengela pilot station [CrossBound:24] operates at 200 swaps per day. 
+Swaps per bike per day,3.7,,AmpCle:25,Cite [AmpCle:25] - supports swaps/day/station derivation
+Docking cabinets,5,units,Stated assumption,STATED ASSUMPTION - CrossBound:24 confirms 36 charging units for 150 batteries at Nairobi pilot; 5 cabinets at ~7-8 slots each is consistent but cabinet count not directly stated in any source. Minor CAPEX item; impact on NPV low. State as assumption in report.
+Cost per docking cabinet,3500,USD,TycBat:24,Cite [TycBat:24] - mid-range of $2500-$5000; state as assumption
+PV system rated power,37000,Wp,Assumption,CORRECTED - full station system is 37 kWp per CrossBoundary/Ampersand pilot [CrossBound:24]; previous value of 235 Wp was a single panel spec not a system spec
+PV installed cost,1.3,USD/Wp,IRENA:16 + IRENA:24,CONSERVATIVE UPPER BOUND - IRENA (2016) reported $1.30/Wp for utility-scale SSA [IRENA:16]; IRENA (2024) reports SSA small-commercial (~37kWp) realistically $0.80-1.10/Wp [IRENA:24]; retaining $1.30/Wp as deliberate conservative upper bound; $0.80/Wp lower bound tested in sensitivity analysis
+ESS size,43,kWh,NgeJunRod:24,Cite [NgeJunRod:24] - baseline stationary buffer ESS from supervisor paper; varied in sensitivity analysis
+ESS cost,300,USD/kWh,GSLEne:26,Cite [GSLEne:26] - mid-range of published $280-580/kWh for commercial LFP
+Battery inventory count,150,units,CrossBound:24,ADDED - number of swap batteries held at station per CrossBoundary/Ampersand pilot [CrossBound:24]; major CAPEX item previously missing from model
+Installation overhead,0.2,fraction,Stated assumption,"State as assumption - 70% of equipment for omission,wiring,land securing anti theft panels and dust and heat mitigation"
+Annual OM rate,0.025,fraction of CAPEX,DomEle:26,Cite [DomEle:26] - industry standard 2.5% fixed O&M for BESS per year
+Annual staff cost,2400,USD/year,WeeTra:20,Cite [WeeTra:20] for Rwanda wage context; 2 staff x $1200/yr; state as assumption
+Discount rate,0.1,fraction,CATF:24,Cite [CATF:24] - 10% adopted as DFI-blended concessional rate reflecting Ampersand's development finance backing (AHL Venture Partners + impact investors); CATF:24 reports continental average WACC 15.6% and Eastern Africa at 18-22% for commercial debt; 10% justified by concessional funding structure; sensitivity sweep [0.10 0.12 0.15 0.18 0.20]
+Project lifetime,20,years,Stated assumption,State as assumption - consistent with IEC and IEA solar PV lifetime standards
+Panel degradation rate,0.005,fraction/year,Stated assumption,State as assumption - 0.5%/yr efficiency loss; standard monocrystalline value
+Battery cycle life EFC,3000,,,
